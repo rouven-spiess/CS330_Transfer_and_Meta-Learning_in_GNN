@@ -12,26 +12,32 @@
 Code for our CS 330 Deep Multi-Task and Meta Learning Final Project:
 Transfer and Meta-Learning in Graph Neural Networks: A Recommender System Approach
 
-Code is divided into two main folders: Meta-Learning and Transfer_Learning 
+Code is divided into two main folders:
 
-* Transfer_Learning_and_Joint-Loss contains the code implementation of a GCN rating-prediction model, and scripts used for fine-tuning and joint-loss training experimentation 
-* Meta-Learning contains the code base for the MAML and Meta-Graph implementations, the base VGAE link prediction model, and data-processing code 
+* **Transfer_Learning_and_Joint-Loss** contains the code implementation of a GCN rating-prediction model, and scripts used for fine-tuning and joint-loss training experimentation 
+* **Meta-Learning** contains the code base for the MAML and Meta-Graph implementations, the base VGAE link prediction model, and data-processing code 
 
 
 ## Technologies
+#### Transfer_Learning_and_Joint-Loss
 * python -version 3.8.16
 * pytorch -version 1.13.0+cu166
 * torch_geometric -version 2.2.0
-* numpy
-* pandas
-* matplotlib
+* sklearn.model_selection
+#### Meta-Learning
+* pytorch
+* torch_geometric.nn
+* torch_scatter
+* sentence_transformers
+* sklearn.metrics
+* utils.utils
 
 <!--## Baseline Model
 keras implementation (https://github.com/divamgupta/image-segmentation-keras/) -->
 ## Screenshots
-<img src="model_selection.png" width="700" />
-<img src="ROC_curves_for_LGBM_classifier.png" width="700" />
-<img src="feature_importance.png" width="700" />
+<img src="images/graph_user_restaurant.png" width="700" />
+<img src="images/light_graph_convolution.png" width="700" />
+<img src="images/meta_graph_algo.png" width="700" />
 <!--<img src="PyCaret_feature_importance_best.png" width="500" /> -->
 
 
@@ -66,13 +72,20 @@ List of features ready and TODOs for future development
 * Train on 3 different U-NET architecture variants-->
 
 ## Results
-From feature selection, regularization analysis and the general screening, we can see that model performance is quite similar ( RMSE ∼ 3) and no model offers a very good approximation to BMI yet. Also, in all approaches, leptin, gender and age have come up as the most important features to focus on, as expected and discussed with our mentor.
+#### Transfer_Learning_and_Joint-Loss
+<img src="images/Atlanta.png" width="700" />
+<img src="images/transfer_learning_results.png" width="700" />
+
+#### Meta-Learning
+<img src="images/meta_learning_results.png" width="700" />
+
+The goal of this project was to explore the effectiveness of several approaches in utilizing restaurant-user patterns of other geographical locations to create a better recommender model with less data. In both the transfer learning and meta-learning approaches we experimented with, we found that these approaches were able to perform noticeably better than the baseline models that do not utilize data from other geographical locations. Given this, it seems the approaches we have tried are effective in creating higher-performing city-specific restaurant recommendation models by utilizing data from other cities.
 
 ## Status
 Project is: _finished_ <!-- a normal html comment _finished_, _no longer continue_ and why?-->
 
 ## Report
-CS229 Summer 2022 Paper [link](paper/CS229__BMI_prediction_using_immune_markers.pdf)
+CS330 Fall 2022 Paper [link](paper/CS330_Final_Project_Report.pdf)
 
 <!--## Inspiration-->
 <!--Add here credits. Project inspired by..., based on...
